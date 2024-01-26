@@ -8,12 +8,15 @@ use Illuminate\Http\Request;
 class MoviesController extends Controller
 {
     function index(): string {
-        $movie = Movie::find(1);
-        dump("$movie->name\n$movie->description\n");
+        $movies = Movie::all();
 
-        $movie = Movie::find(2);
-        dump("$movie->name\n$movie->description\n");
+        foreach ($movies as $movie) {
+            dump("$movie->name\n$movie->description\n");
+        }
 
+        $movie = Movie::where("name", "Гнев человеческий")->first();
+
+        dump($movie->name);
 
         return "На этой странице расположены мои любимые фильмы и аниме";
     }

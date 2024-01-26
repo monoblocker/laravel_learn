@@ -9,11 +9,12 @@ class GamesController extends Controller
 {
     function index(): string
     {
-        $game = Game::find(1);
-        dump("$game->name\n$game->description");
+        $games = Game::all();
 
-        $game = Game::find(2);
-        dump("$game->name\n$game->description");
+        foreach ($games as $game) {
+            dump("$game->name\n$game->description");
+        }
+
         return "Это страница с моими любимыми играми";
     }
 }

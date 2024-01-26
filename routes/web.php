@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GamesController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HobbyController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\ErrorController;
+use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\TechController;
+use App\Http\Controllers\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,34 +25,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return "Меня зовут Михаил, я backend программист на PHP.";
-});
+Route::get("/about", [AboutController::class, "index"]);
 
-Route::get('/hobby', function () {
-    return "Мне нравится смотреть играть в игры и слушать музыку разных жанров";
-});
+Route::get('/hobby', [HobbyController::class, "index"]);
 
-Route::get("/job", function () {
-    return "Пока что я не работаю. Я учусь в университете";
-});
+Route::get("/job", [JobController::class, "index"]);
 
-Route::get("/error", function () {
-   return "Похоже, что-то пошло не так";
-});
+Route::get("/error", [ErrorController::class, "index"]);
 
-Route::get("/games", function () {
-    return "Это страница с моими любимыми играми";
-});
+Route::get("/games", [GamesController::class, "index"]);
 
-Route::get("/movies", function () {
-   return "На этой странице расположены мои любимые фильмы и аниме";
-});
+Route::get("/movies", [MoviesController::class, "index"]);
 
-Route::get("/tech", function () {
-    return "На этой странице расположены все технологии, которые я изучил";
-});
+Route::get("/tech", [TechController::class, "index"]);
 
-Route::get("/social", function () {
-    return "На этой странице ссылки на меня в интернете";
-});
+Route::get("/social", [SocialController::class, "index"]);

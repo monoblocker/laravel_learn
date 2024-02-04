@@ -17,4 +17,16 @@ class GamesController extends Controller
 
         return "Это страница с моими любимыми играми";
     }
+
+    function create(): string
+    {
+        $newGame = [
+            "name" => "New game",
+            "description" => "Description"
+        ];
+
+        Game::create($newGame);
+
+        return "создано";
+    }
 }

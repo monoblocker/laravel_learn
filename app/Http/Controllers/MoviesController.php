@@ -18,6 +18,6 @@ class MoviesController extends Controller
 
         dump($movie->name);
 
-        return "На этой странице расположены мои любимые фильмы и аниме";
+        return "На этой странице расположены мои любимые фильмы";
     }
 }

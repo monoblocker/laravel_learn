@@ -9,4 +9,5 @@ class Game extends Model
 {
     use HasFactory;
     protected $table = "games";
+    protected $guarded = false;
 }

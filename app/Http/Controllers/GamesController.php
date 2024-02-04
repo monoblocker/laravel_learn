@@ -42,4 +42,18 @@ class GamesController extends Controller
 
         return "обновлено";
     }
+
+    function delete()
+    {
+        $game = Game::find(6);
+
+        $game->delete();
+    }
+
+    function restore()
+    {
+        $game = Game::withTrashed()->find(6);
+
+        $game->restore();
+    }
 }

@@ -12,4 +12,5 @@ class Movie extends Model
     use SoftDeletes;
 
     protected $table = "movies";
+    protected $guarded = false;
 }

@@ -8,9 +8,7 @@ class GamesController extends Controller
 {
     function getAll(): string
     {
-        $games = Game::all();
-
-        return view("games", compact("games"));
+        return Game::all();
     }
 
     function create(): string

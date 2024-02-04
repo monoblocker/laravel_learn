@@ -8,16 +8,36 @@ use Illuminate\Http\Request;
 class MoviesController extends Controller
 {
     function getAll(): string {
-        $movies = Movie::all();
+        return Movie::all();
+    }
 
-        foreach ($movies as $movie) {
-            dump("$movie->name\n$movie->description\n");
-        }
+    function create()
+    {
+        return Movie::firstOrCreate(["title" => "some movie"], [
+            "title" => "some movie",
+            "description" => "some description"
+        ]);
+    }
 
-        $movie = Movie::where("name", "Гнев человеческий")->first();
+    function update()
+    {
+        return Movie::updateOrCreate(["title" => "some movie"], [
+            "title" => "updated some movie",
+            "description" => "some description"
+        ]);
+    }
 
-        dump($movie->name);
+    function delete():void
+    {
+        $movie = Movie::first();
 
-        return "На этой странице расположены мои любимые фильмы";
+        $movie->delete();
+    }
+
+    function restore()
+    {
+        $movie = Movie::withTrashed()->first();
+
+        $movie->restore();
     }
 }

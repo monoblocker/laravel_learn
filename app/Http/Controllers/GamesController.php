@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
-use Illuminate\Http\Request;
 
 class GamesController extends Controller
 {
@@ -11,11 +10,7 @@ class GamesController extends Controller
     {
         $games = Game::all();
 
-        foreach ($games as $game) {
-            dump("$game->name\n$game->description");
-        }
-
-        return "Это страница с моими любимыми играми";
+        return view("games", compact("games"));
     }
 
     function create(): string

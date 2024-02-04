@@ -25,22 +25,19 @@ class GamesController extends Controller
             "description" => "Description"
         ];
 
-        Game::create($newGame);
-
-        return "создано";
+        return Game::firstOrCreate(["name" => $newGame["name"]], $newGame);
     }
 
     function update(): string
     {
-        $oldGame = Game::find(3);
-
         $newGame = [
-            "name" => "Another new game"
+            "name" => "Hades",
+            "description" => "Рогалик"
         ];
 
-        $oldGame->update($newGame);
+        return Game::updateOrCreate(["name" => "New game"], $newGame);
 
-        return "обновлено";
+
     }
 
     function delete()

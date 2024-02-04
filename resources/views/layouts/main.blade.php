@@ -8,11 +8,11 @@
     @vite('resources/css/app.css')
     <title>Document</title>
 </head>
-<body>
+<body class="p-4 bg-gray-900 text-white">
     <header>
         <nav>
             <ul>
-                <li><a class="text-3xl font-bold underline" href="{{route("main.index")}}">Главная</a></li>
+                <li><a class="text-3xl font-bold" href="{{route("main.index")}}">Главная</a></li>
             </ul>
         </nav>
     </header>

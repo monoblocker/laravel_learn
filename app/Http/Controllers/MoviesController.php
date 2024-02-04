@@ -13,10 +13,18 @@ class MoviesController extends Controller
 
     function create()
     {
-        return Movie::firstOrCreate(["title" => "some movie"], [
-            "title" => "some movie",
-            "description" => "some description"
+        return view("movie.create");
+    }
+
+    function store()
+    {
+        $data = request()->validate([
+           "title" => "string",
+           "description" => "string"
         ]);
+
+        Movie::create($data);
+        return redirect()->route("main.index");
     }
 
     function update()

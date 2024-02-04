@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [AboutController::class, "index"])->name("main.index");
 
 Route::get('/movies', [MoviesController::class, "getAll"]);
-Route::get('/movies/create', [MoviesController::class, "create"]);
+Route::get('/movies/create', [MoviesController::class, "create"])->name("movie.create");
+Route::post('/movies/store', [MoviesController::class, "store"])->name("movie.store");
 Route::get('/movies/update', [MoviesController::class, "update"]);
 Route::get("/movies/delete", [MoviesController::class, "delete"]);
 Route::get("/movies/restore", [MoviesController::class, "restore"]);

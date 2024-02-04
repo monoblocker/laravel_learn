@@ -6,7 +6,7 @@ use App\Models\Game;
 
 class GamesController extends Controller
 {
-    function index(): string
+    function getAll(): string
     {
         $games = Game::all();
 

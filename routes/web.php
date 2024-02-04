@@ -1,46 +1,22 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GamesController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\HobbyController;
-use App\Http\Controllers\JobController;
-use App\Http\Controllers\ErrorController;
+use App\Http\Controllers\GamesController;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\TechController;
-use App\Http\Controllers\SocialController;
+use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get("/", [AboutController::class, "index"])->name("main.index");
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get("/about", [AboutController::class, "index"]);
-
-Route::get('/hobby', [HobbyController::class, "index"]);
+Route::get('/movies', [MoviesController::class, "getAll"]);
 
 Route::get("/job", [JobController::class, "index"]);
 
-Route::get("/error", [ErrorController::class, "index"]);
-
-Route::get("/games", [GamesController::class, "index"]);
+Route::get("/games", [GamesController::class, "getAll"]);
 Route::get("/games/create", [GamesController::class, "create"]);
 Route::get("/games/update", [GamesController::class, "update"]);
 Route::get("/games/delete", [GamesController::class, "delete"]);
 Route::get("/games/restore", [GamesController::class, "restore"]);
 
-Route::get("/movies", [MoviesController::class, "index"]);
-
 Route::get("/tech", [TechController::class, "index"]);
-
-Route::get("/social", [SocialController::class, "index"]);

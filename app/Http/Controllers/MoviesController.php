@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class MoviesController extends Controller
 {
-    function index(): string {
+    function getAll(): string {
         $movies = Movie::all();
 
         foreach ($movies as $movie) {

@@ -5,18 +5,19 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Games</title>
+    <title>Document</title>
 </head>
 <body>
-    @foreach($games as $game)
-        <div>
-            <h1>
-                {{$game->title}}
-            </h1>
-            <p>
-                {{$game->description}}
-            </p>
-        </div>
-    @endforeach
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{route("main.index")}}">Главная</a></li>
+            </ul>
+        </nav>
+    </header>
+    @yield("content")
+    <footer>
+        My socials
+    </footer>
 </body>
 </html>

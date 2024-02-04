@@ -21,21 +21,21 @@ class GamesController extends Controller
     function create(): string
     {
         $newGame = [
-            "name" => "New game",
+            "title" => "New game",
             "description" => "Description"
         ];
 
-        return Game::firstOrCreate(["name" => $newGame["name"]], $newGame);
+        return Game::firstOrCreate(["title" => $newGame["title"]], $newGame);
     }
 
     function update(): string
     {
         $newGame = [
-            "name" => "Hades",
+            "title" => "Hades",
             "description" => "Рогалик"
         ];
 
-        return Game::updateOrCreate(["name" => "New game"], $newGame);
+        return Game::updateOrCreate(["title" => "New game"], $newGame);
 
 
     }

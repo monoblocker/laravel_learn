@@ -29,4 +29,17 @@ class GamesController extends Controller
 
         return "создано";
     }
+
+    function update(): string
+    {
+        $oldGame = Game::find(3);
+
+        $newGame = [
+            "name" => "Another new game"
+        ];
+
+        $oldGame->update($newGame);
+
+        return "обновлено";
+    }
 }

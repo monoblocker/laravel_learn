@@ -35,6 +35,7 @@ Route::get("/error", [ErrorController::class, "index"]);
 
 Route::get("/games", [GamesController::class, "index"]);
 Route::get("/games/create", [GamesController::class, "create"]);
+Route::get("/games/update", [GamesController::class, "update"]);
 
 Route::get("/movies", [MoviesController::class, "index"]);
 
